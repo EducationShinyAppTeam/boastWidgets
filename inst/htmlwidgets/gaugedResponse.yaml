@@ -1,0 +1,18 @@
+dependencies:
+- name: d3
+  version: 5.16.0
+  src: htmlwidgets
+  script: ./lib/d3.v5.min.js
+- name: d3array
+  version: 2.5.0
+  src: htmlwidgets
+  script: ./lib/d3-array.v2.min.js
+- name: d3v3
+  version: 3.5.16
+  src: htmlwidgets
+  script: ./lib/d3.v3.min.js
+- name: c3
+  version: 0.4.10
+  src: htmlwidgets
+  script: ./lib/c3.min.js
+  style: ./lib/c3.min.css

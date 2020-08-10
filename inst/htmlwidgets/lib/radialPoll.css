@@ -1,0 +1,87 @@
+.radialPoll {
+  max-width: 450px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.vote {
+  fill: transparent;
+}
+
+.vote.filled {
+  fill: darkgray;
+}
+
+.vote.highlight {
+  fill: orange;
+}
+
+.vote.highlight:hover {
+  stroke: chocolate;
+  stroke-width: 4px;
+  paint-order: stroke;
+}
+
+.handle {
+  cursor: all-scroll;
+  fill: #FFF;
+  stroke: darkgray;
+  stroke-width: 4;
+}
+
+.handle.active, .handle:hover, .handle:active, .handle:focus {
+  stroke: #bdbdbd;
+}
+
+.handle.disabled {
+  stroke: #CCC;
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.warning {
+  color: #F00;
+}
+
+svg .radial:first-child {
+  display: none;
+}
+
+svg .radial circle {
+  stroke-width: 5;
+}
+
+text {
+  fill: darkslategray;
+  font-size: 18px;
+  font-weight: 600;
+  transform-origin: 0.18rem -0.2rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.choice:nth-child(1) {
+  fill: cornflowerblue;
+}
+
+.choice:nth-child(2) {
+  fill: tomato;
+}
+
+.choice:nth-child(3) {
+  fill: mediumseagreen;
+}
+
+.choice:nth-child(4) {
+  fill: gold;
+}
+
+.choice:nth-child(5) {
+  fill: grey;
+}
+
+.deg:after {
+  content: '\00B0';
+}

@@ -1,0 +1,18 @@
+Package: boastWidgets
+Type: Package
+Title: BOAST Utilities
+Version: 0.0.1
+Date: 2020-08-10
+Authors@R: c(
+  person("Robert", "Carey", email = "rpc5102@psu.edu", role = c("aut", "cre"))
+  )
+Maintainer: Robert Carey <rpc5102@psu.edu>
+Description: Contains a set of reusable htmlwidgets for the Book Of Apps for Statistics Teaching (BOAST)
+URL: https://github.com/EducationShinyAppTeam/boastWidgets
+BugReports: https://github.com/EducationShinyAppTeam/boastWidgets/issues
+License: GPL-3.0+
+Encoding: UTF-8
+LazyData: true
+Depends: shiny (>= 0.11), htmltools, htmlwidgets
+RoxygenNote: 7.1.0
+Roxygen: list(markdown = TRUE)

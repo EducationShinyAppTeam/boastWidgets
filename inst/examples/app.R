@@ -1,0 +1,34 @@
+library(boastWidgets)
+
+# Define UI for app that draws a histogram ----
+ui <- fluidPage(
+
+  # App title ----
+  titlePanel("Hello Shiny!"),
+
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+
+    ),
+
+    # Main panel for displaying outputs ----
+    mainPanel(
+
+      # Output: Poll
+      radialPollOutput("poll")
+    )
+  )
+)
+
+# Define server logic required to draw a histogram ----
+server <- function(input, output) {
+  data <- jsonlite::read_json('./sample-data.json')
+  output$poll <- renderRadialPoll({
+    radialPoll(data)
+  })
+}
+
+shinyApp(ui, server)
