@@ -4,7 +4,7 @@
 \alias{radialPoll}
 \title{<Add Title>}
 \usage{
-radialPoll(message, width = NULL, height = NULL, elementId = NULL)
+radialPoll(data, width = NULL, height = NULL, elementId = NULL)
 }
 \description{
 <Add Description>

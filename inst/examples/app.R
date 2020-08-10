@@ -26,6 +26,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram ----
 server <- function(input, output) {
   data <- jsonlite::read_json('./sample-data.json')
+
   output$poll <- renderRadialPoll({
     radialPoll(data)
   })

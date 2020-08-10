@@ -3,9 +3,12 @@
 \name{radialPoll-shiny}
 \alias{radialPoll-shiny}
 \alias{radialPollOutput}
+\alias{renderRadialPoll}
 \title{Shiny bindings for radialPoll}
 \usage{
 radialPollOutput(outputId, width = "100\%", height = "400px")
+
+renderRadialPoll(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{outputId}{output variable to read from}

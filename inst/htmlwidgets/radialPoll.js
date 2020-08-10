@@ -27,8 +27,6 @@ HTMLWidgets.widget({
         // Vote data
         let data = x;
 
-        console.log(data);
-
         // Max points per ring - 13 rings total
         const ringMax = [25, 27, 30, 33, 36, 40, 43, 46, 49, 52, 54, 57, 60];
         const slots = generateSlots();
