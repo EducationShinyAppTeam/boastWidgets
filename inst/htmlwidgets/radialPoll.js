@@ -6,40 +6,39 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
+    // Define shared variables for this instance
+    const innerWidth = 954;
+    const innerHeight = 350;
+    const innerRadius = 110;
+    const outerRadius = innerWidth / 3;
+    const pointRadius = innerRadius / 20;
+    const pointPadding = pointRadius;
+    const handleRadius = 13;
 
     return {
 
       renderValue: function(x) {
 
-        const width = 954;
-        const height = 350;
-        const margin = 10;
-        const innerRadius = 110;
-        const outerRadius = width / 3;
-        const pointRadius = innerRadius / 20;
-        const pointPadding = pointRadius;
-        const handleRadius = 13;
-        const maxVotes = 1;
-        const displayAngle = true;
-        const displayLegend = true;
+        console.log(x);
 
-        // Vote data
-        let data = x;
+        // @todo: set display options to false
 
-        // Max points per ring - 13 rings total
+        // Configurable options
+        const options = x.options ? x.options : '';
+        const maxVotes = options.maxVotes ? options.maxVotes : 1;
+        const displayAngle = options.display && options.display.angle ? options.display.angle : true;
+        const displayLegend = options.display && options.display.legend ? options.display.legend : true;
+
+        // Plot data
+        let data = x.data;
+
+        // Max votes per ring - 13 rings total
         const ringMax = [25, 27, 30, 33, 36, 40, 43, 46, 49, 52, 54, 57, 60];
         const slots = generateSlots();
+        const choices = setChoices(options.choices);
+
         let totalVotes = data.length;
         let userVotes = 0;
-
-        const choices = [{
-          angle: 0,
-          label: 'A'
-        }, {
-          angle: 180,
-          label: 'B'
-        }];
 
         let handlePos = [{
           angle: 90,
@@ -62,7 +61,7 @@ HTMLWidgets.widget({
 
         const svg = d3.select(el)
           .append("svg")
-          .attr("viewBox", [- width / 2.839285714, - handleRadius - 2.25, width / 1.423880597, height])
+          .attr("viewBox", [- innerWidth / 2.839285714, - handleRadius - 2.25, innerWidth / 1.423880597, innerHeight])
           .attr("stroke-linejoin", "round")
           .attr("stroke-linecap", "round")
           .attr("style", "transform:rotate(180deg)");
@@ -195,6 +194,28 @@ HTMLWidgets.widget({
           return possibilities;
         }
 
+        /* Setup vote choice labels */
+        function setChoices (choices) {
+
+          // We must have at least two options for a meaningful vote
+          const count = choices.length >= 2 && typeof (choices) == "object" ? choices.length : 2;
+
+          // Split hemicycle into equal parts
+          const offset = 180 / (count - 1);
+
+          let values = [];
+
+          for(i = 0; i < count; i++){
+            values.push({
+              angle: i * offset, // 0 <= N <= 180
+              label: String.fromCharCode(65 + i) // 'A' + current index
+            })
+          }
+
+          return values;
+        }
+
+        /* Circle X position */
         function getCX(d) {
           ringOffset = (d.ring - 1) * (pointRadius * 2.25) + pointPadding;
           radians = (d.deg / 180) * Math.PI;
@@ -202,6 +223,7 @@ HTMLWidgets.widget({
           return cx;
         }
 
+        /* Circle Y position */
         function getCY(d) {
           ringOffset = (d.ring - 1) * (pointRadius * 2.25) + pointPadding;
           radians = (d.deg / 180) * Math.PI;

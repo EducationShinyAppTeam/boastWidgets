@@ -5,12 +5,25 @@
 #' @import htmlwidgets
 #'
 #' @export
-radialPoll <- function(data, width = NULL, height = NULL, elementId = NULL) {
+radialPoll <- function(data, options = NULL, width = NULL, height = NULL, elementId = NULL) {
+
+  if(!is.null(options)) {
+    if(length(options$choices) < 2) {
+      warning("Please provide at least two choices as options$choices.")
+    } else if(length(options$choices) > 10) {
+      warning("Consider limiting your list of choices to 10 or fewer.")
+    }
+  }
+
+  x <- list(
+    data = data,
+    options = options
+  )
 
   # create widget
   htmlwidgets::createWidget(
     name = 'radialPoll',
-    data,
+    x,
     width = width,
     height = height,
     package = 'boastWidgets',

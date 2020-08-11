@@ -28,7 +28,26 @@ server <- function(input, output) {
   data <- jsonlite::read_json('./sample-data.json')
 
   output$poll <- renderRadialPoll({
-    radialPoll(data)
+    radialPoll(
+      data = data,
+      options = list(
+        choices = c(
+          "Apples",
+          "Bananas",
+          "Carrots",
+          "Durian",
+          "Eggplant",
+          "Fig",
+          "Grapes",
+          "Honeydew"
+        ),
+        display = list(
+          angles = FALSE,
+          theme = c(), # @todo: Add color palette options
+          legend = FALSE
+        )
+      )
+    )
   })
 }
 
