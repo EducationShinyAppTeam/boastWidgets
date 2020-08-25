@@ -42,9 +42,9 @@ server <- function(input, output) {
           "Honeydew"
         ),
         display = list(
-          angles = FALSE,
+          angle = TRUE,
           theme = c(), # @todo: Add color palette options
-          legend = FALSE
+          controls = TRUE
         )
       )
     )

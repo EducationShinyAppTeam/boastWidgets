@@ -26,8 +26,8 @@ HTMLWidgets.widget({
         // Configurable options
         const options = x.options ? x.options : '';
         const maxVotes = options.maxVotes ? options.maxVotes : 1;
-        const displayAngle = options.display && options.display.angle ? options.display.angle : true;
-        const displayLegend = options.display && options.display.legend ? options.display.legend : true;
+        const displayAngle = options.display && options.display.angle !== undefined ? options.display.angle : true;
+        const displayControls = options.display && options.display.controls !== undefined ? options.display.controls : true;
 
         // Plot data
         let data = x.data;
@@ -55,6 +55,30 @@ HTMLWidgets.widget({
               deg.innerHTML = value;
 
           wrapper.appendChild(deg);
+
+          return wrapper;
+        }
+
+        let controls = function(display = true) {
+          let wrapper = document.createElement("div");
+              wrapper.className = "poll-instructions";
+
+          if(display) {
+            let controls = document.createElement("div");
+              controls.className = "poll-control-guide";
+              controls.innerHTML =
+              `<strong>Keyboard Controls:</strong>
+                <ul>
+                  <li><kbd>Arrow Right</kbd>: +5</li>
+                  <li><kbd>Arrow Up</kbd>: +1</li>
+                  <li><kbd>Arrow Left</kbd>: -5</li>
+                  <li><kbd>Arrow Down</kbd>: -1</li>
+                  <li><kbd>Enter</kbd>: Submit</li>
+                </ul>
+                <p><strong>Note:</strong> to use controls, you must tab into the poll first.</p>`;
+
+            wrapper.appendChild(controls);
+          }
 
           return wrapper;
         }
@@ -389,8 +413,8 @@ HTMLWidgets.widget({
           el.appendChild(angleIndicator(handlePos[0].angle));
         }
 
-        if(!displayLegend) {
-          //document.getElementById('legend').style.display = 'none';
+        if(displayControls) {
+          el.appendChild(controls(displayControls));
         }
 
         fillSlots(data);
