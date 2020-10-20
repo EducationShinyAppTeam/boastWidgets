@@ -1,5 +1,6 @@
 library(boastUtils)
 library(boastWidgets)
+library(shinyBS)
 
 APP_TITLE <<- "boastWidgets"
 
@@ -42,7 +43,7 @@ ui <- list(
             # https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/ 
             column(3,
                    h3("Buttons"),
-                   actionButton("action", "Action"),
+                   bsButton(inputId = "action", label = "Action", style = "default"),
                    br(),
                    br(), 
                    submitButton("Submit")),
@@ -109,10 +110,6 @@ ui <- list(
                              value = "Enter text..."))   
           )
         ),
-        #### Note: you must have at least one of the following pages. You might
-        #### have more than one type and/or more than one of the same type. This
-        #### will be up to you and the goals for your app.
-        #### Set up an Explore Page
         tabItem(
           tabName = "Advanced",
           # Output: Poll
