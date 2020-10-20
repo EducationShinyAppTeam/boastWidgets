@@ -62,7 +62,7 @@ ui <- list(
             column(3, 
                    dateInput("date", 
                              h3("Date input"), 
-                             value = "2014-01-01"))   
+                             value = "2020-01-01"))   
           ),
           
           fluidRow(
