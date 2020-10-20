@@ -1,8 +1,8 @@
 Package: boastWidgets
 Type: Package
 Title: BOAST Utilities
-Version: 0.0.1
-Date: 2020-08-10
+Version: 0.0.2
+Date: 2020-10-20
 Authors@R: c(
   person("Robert", "Carey", email = "rpc5102@psu.edu", role = c("aut", "cre"))
   )
@@ -13,6 +13,7 @@ BugReports: https://github.com/EducationShinyAppTeam/boastWidgets/issues
 License: GPL-3.0+
 Encoding: UTF-8
 LazyData: true
-Depends: shiny (>= 0.11), htmltools, htmlwidgets
+Depends: shiny (>= 0.11), htmltools, htmlwidgets, boastUtils
 RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE)
+Remotes: EducationShinyAppTeam/boastUtils
