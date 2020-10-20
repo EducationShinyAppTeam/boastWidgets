@@ -1,6 +1,4 @@
-#' <Add Title>
-#'
-#' <Add Description>
+#' radialPoll
 #'
 #' @import htmlwidgets
 #'

@@ -1,8 +1,14 @@
 ---
 title: "BOAST Widgets"
 author: EducationShinyAppTeam
-date: August 10, 2020
+date: October 20, 2020
 output: github_document
+knit: (function(inputFile, encoding) { 
+      rmarkdown::render(
+        inputFile,
+        encoding = encoding, 
+        output_file=file.path(dirname(inputFile), "docs", "README.md"))
+      })
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -19,7 +25,13 @@ knitr::opts_chunk$set(
 
 Used to provide reusable [htmlwidgets](https://www.htmlwidgets.org/) for the [BOAST](https://github.com/EducationShinyAppTeam/BOAST) project.
 
-# Available Widgets
-- Radial Poll
+![App Screenshot](../docs/screenshot.png)
 
-**More information to come...**
+## Available Widgets
+- [Shiny Widgets](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
+- Radial Poll
+- More to come...
+
+## Demo
+
+:rocket:[Launch](https://psu-eberly.shinyapps.io/boastWidgets/)

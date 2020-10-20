@@ -2,10 +2,10 @@
 % Please edit documentation in R/radialPoll.R
 \name{radialPoll}
 \alias{radialPoll}
-\title{<Add Title>}
+\title{radialPoll}
 \usage{
-radialPoll(data, width = NULL, height = NULL, elementId = NULL)
+radialPoll(data, options = NULL, width = NULL, height = NULL, elementId = NULL)
 }
 \description{
-<Add Description>
+radialPoll
 }

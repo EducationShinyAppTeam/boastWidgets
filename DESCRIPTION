@@ -14,6 +14,6 @@ License: GPL-3.0+
 Encoding: UTF-8
 LazyData: true
 Depends: shiny (>= 0.11), htmltools, htmlwidgets, boastUtils
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 Remotes: EducationShinyAppTeam/boastUtils
